@@ -80,6 +80,33 @@ def authenticate():
         message = {'message': 'Unauthorized'}
         return Response(message, status=401, mimetype='application/json')
 
+@app.route('/messages', methods = ['POST'])
+def create_message():
+    c =  json.loads(request.form['values'])
+    session = db.getSession(engine)
+    message = entities.Message(
+        content=c['content'],
+        user_from_id= c['user_from_id'],
+        user_to_id=c['user_to_id']
+    )
+    session.add(message)
+    session.commit()
+    return 'Created Message'
+
+@app.route('/messages', methods = ['PUT'])
+def update_message():
+    session = db.getSession(engine)
+    id = request.form['key']
+    message = session.query(entities.Message).filter(entities.Message.id == id).first()
+    c =  json.loads(request.form['values'])
+    for key in c.keys():
+        setattr(message, key, c[key])
+    session.add(message)
+    session.commit()
+    return 'Updated Message'
+
+
+
 
 if __name__ == '__main__':
     app.secret_key = ".."
