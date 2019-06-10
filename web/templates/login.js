@@ -1,5 +1,5 @@
 function getData(){
-        $('#action').append('<div><img src="images/cargando.gif" width="32" height="32"/></div>');
+        $('#action').append('<img src="images/load.gif" width="50" height="50"/>');
         var username = $('#username').val();
         var password = $('#password').val();
         var message = JSON.stringify({
@@ -15,9 +15,9 @@ function getData(){
             success: function(response){
                 $('#action').html("");
                 if(response['status']==401){
-                $('#action').append('<img width="35" height="35" src="images/equis.png"/>');
+                $('#action').append('<img width="50" height="50" src="images/fail.png"/>');
                 }else{
-                $('#action').append('<img width="35" height="35" src="images/ok.png"/>');
+                $('#action').append('<img width="50" height="50" src="images/check.png"/>');
                 }
 
                 //$('#action').html(response['statusText']);
@@ -26,9 +26,9 @@ function getData(){
                 $('#action').html("");
 
                 if(response['status']==401){
-                $('#action').append('<img width="35" height="35" src="images/equis.png"/"/>');
+                $('#action').append('<img width="50" height="50" src="images/fail.png"/"/>');
                 }else{
-                $('#action').append('<img width="35" height="35" src="images/ok.png"/"/>');
+                $('#action').append('<img width="50" height="50" src="images/check.png"/"/>');
                 }
 
         }});
