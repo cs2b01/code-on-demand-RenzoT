@@ -18,6 +18,8 @@ function getData(){
                 $('#action').append('<img width="50" height="50" src="images/fail.png"/>');
                 }else{
                 $('#action').append('<img width="50" height="50" src="images/check.png"/>');
+                var url = 'http://'+document.domain + ':' + location.port + '/static/chat.html';
+                $(location).attr('href',url);
                 }
 
                 //$('#action').html(response['statusText']);
@@ -29,6 +31,8 @@ function getData(){
                 $('#action').append('<img width="50" height="50" src="images/fail.png"/"/>');
                 }else{
                 $('#action').append('<img width="50" height="50" src="images/check.png"/"/>');
+                var url = 'http://'+document.domain + ':' + location.port + '/static/chat.html';
+                $(location).attr('href',url);
                 }
 
         }});
