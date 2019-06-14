@@ -72,7 +72,7 @@ function whoami(){
             });
 
         $.ajax({
-            url:'/gabriel/messages',
+            url:'/messages',
             type:'POST',
             contentType: 'application/json',
             data : data,

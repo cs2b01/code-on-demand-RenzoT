@@ -113,7 +113,7 @@ def get_messages(user_from_id, user_to_id ):
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
 
-@app.route('/gabriel/messages', methods = ["POST"])
+@app.route('/messages', methods = ["POST"])
 def create_message():
     data = json.loads(request.data)
     user_to_id = data['user_to_id']
